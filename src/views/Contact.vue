@@ -84,22 +84,29 @@
     methods : {
       contactFormSubmit(){
         let formData = {
-          Name: this.name,
-          Email: this.email,
-          Phone: this.phone,
-          Problem: this.problem
+          name: this.name,
+          email: this.email,
+          phone: this.phone,
+          problem: this.problem
         }
-        this.axios({
-          method: 'post',
-          url: 'formBooking.php',
-          data: formData
-        })
-        .then((response) => {
-          //console.log(response)
-          this.showThankyouModal = true;
+        emailjs.send('service_propertyfix', 'template_propertyfix2', formData, 'user_iEqRybEzSvJB8w8goJwuT')
+        .then( () => {
+            //console.log('SUCCESS!');
+              this.showThankyouModal = true;
         }, (error) => {
-          console.log(error);
-        })
+            //console.log('FAILED...', error);
+        });
+        // this.axios({
+        //   method: 'post',
+        //   url: 'formBooking.php',
+        //   data: formData
+        // })
+        // .then((response) => {
+        //   //console.log(response)
+        //   this.showThankyouModal = true;
+        // }, (error) => {
+        //   console.log(error);
+        // })
       },
     }
   }

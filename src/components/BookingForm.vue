@@ -181,27 +181,34 @@
       },
       formSubmit(){
         let formData = {
-          Name: this.name,
-          Email: this.email,
-          Phone: this.phone,
-          Postcode: this.postcode,
-          Service: this.selectedService,
-          Date: this.selectedDate,
-          Time: this.selectedTime,
-          Address: this.selectedAddress,
-          Problem: this.problem,
+          name: this.name,
+          email: this.email,
+          phone: this.phone,
+          postcode: this.postcode,
+          service: this.selectedService,
+          date: this.selectedDate,
+          time: this.selectedTime,
+          address: this.selectedAddress,
+          problem: this.problem,
         }
-        this.axios({
-          method: 'post',
-          url: 'formBooking.php',
-          data: formData
-        })
-        .then((response) => {
-          //console.log(response)
-          this.showThankyouModal = true;
+        emailjs.send('service_propertyfix', 'template_propertyfix', formData, 'user_iEqRybEzSvJB8w8goJwuT')
+        .then( () => {
+//          console.log('SUCCESS!');
+            this.$data.showThankyouModal = true;
         }, (error) => {
-          console.log(error);
-        })
+//          console.log('FAILED...', error);
+        });
+        // this.axios({
+        //   method: 'post',
+        //   url: 'formBooking.php',
+        //   data: formData
+        // })
+        // .then((response) => {
+        //   //console.log(response)
+        //   this.showThankyouModal = true;
+        // }, (error) => {
+        //   console.log(error);
+        // })
       },
       returnHome(){
         this.$router.go(0);
