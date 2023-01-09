@@ -93,7 +93,10 @@
         .then( () => {
             //console.log('SUCCESS!');
               this.showThankyouModal = true;
-              this.reset();
+              this.name = '';
+              this.email = '';
+              this.phone = '';
+              this.problem = '';
         }, (error) => {
             //console.log('FAILED...', error);
         });
