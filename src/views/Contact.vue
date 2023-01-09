@@ -50,7 +50,7 @@
           </form>
         </div>
       </div>
-      <BootstrapModal v-if="showThankyouModal" @close="showThankyouModal = false">
+      <BootstrapModal v-if="showThankyouModal" @close="showThankyouModal = false ">
         <h6>
           Thank you for contacting us.
         </h6>
@@ -93,6 +93,7 @@
         .then( () => {
             //console.log('SUCCESS!');
               this.showThankyouModal = true;
+              this.reset();
         }, (error) => {
             //console.log('FAILED...', error);
         });
