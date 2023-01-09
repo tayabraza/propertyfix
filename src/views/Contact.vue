@@ -50,7 +50,7 @@
           </form>
         </div>
       </div>
-      <BootstrapModal v-if="showThankyouModal" @close="$router.go(0)">
+      <BootstrapModal v-if="showThankyouModal" @close="showThankyouModal = false">
         <h6>
           Thank you for contacting us.
         </h6>

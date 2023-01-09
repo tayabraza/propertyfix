@@ -194,7 +194,7 @@
         emailjs.send('service_propertyfix', 'template_propertyfix', formData, 'user_iEqRybEzSvJB8w8goJwuT')
         .then( () => {
 //          console.log('SUCCESS!');
-            this.$data.showThankyouModal = true;
+            this.showThankyouModal = true;
         }, (error) => {
 //          console.log('FAILED...', error);
         });
