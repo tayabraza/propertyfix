@@ -1,5 +1,3 @@
-# PropertyFix
-
 ## Project Setup
 
 ```sh
